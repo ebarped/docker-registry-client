@@ -21,6 +21,7 @@ func Quiet(format string, args ...interface{}) {
  * Pass log messages along to Go's "log" module.
  */
 func Log(format string, args ...interface{}) {
+	logf.SetMinLevel(logf.DEBUG)
 	logf.Printf(format, args...)
 }
 
