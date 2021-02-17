@@ -25,7 +25,7 @@ func (registry *Registry) DownloadBlob(repository string, digest digest.Digest) 
 // It uploads the bytes read from content. Digest must match with the hash of those bytes.
 // In case of token authentication the HTTP request must be retried after a 401 Unauthorized response
 // (see https://docs.docker.com/registry/spec/auth/token/). In this case the getBody function is called
-// in order to retrieve a fresh instance of the content reader. This behaviour matches exactly of the
+// in order to retrieve a fresh instance of the content reader. This behavior matches exactly of the
 // GetBody parameter of http.Client. This also means that if content is of type *bytes.Buffer,
 // *bytes.Reader or *strings.Reader, then GetBody is populated automatically (as explained in the
 // documentation of http.NewRequest()), so nil can be passed as the getBody parameter.
