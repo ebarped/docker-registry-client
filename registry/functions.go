@@ -1,6 +1,6 @@
 package registry
 
-func (r *Registry) GetImages() (map[string][]string, error) {
+func (registry *Registry) GetImages() (map[string][]string, error) {
 	repositories, err := registry.Repositories()
 	if err != nil {
 		return nil, err
