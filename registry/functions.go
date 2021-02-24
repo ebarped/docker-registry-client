@@ -1,5 +1,8 @@
 package registry
 
+
+// GetImages returns a map[string][]string which keys are the image name
+// and the values are a []string with the tags of each image
 func (registry *Registry) GetImages() (map[string][]string, error) {
 	repositories, err := registry.Repositories()
 	if err != nil {
@@ -13,9 +16,10 @@ func (registry *Registry) GetImages() (map[string][]string, error) {
 		}
 		imageList[image] = tags
 	}
-	return imageList, err
+	return imageList, nil
 }
 
+// DeleteTag deletes an image tag from the registry
 func (registry *Registry) DeleteTag(image, tag string, dryRunMode bool) error {
 	digest, err := registry.ManifestDigest(image, tag)
 	if err != nil {
