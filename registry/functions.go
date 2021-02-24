@@ -15,3 +15,17 @@ func (registry *Registry) GetImages() (map[string][]string, error) {
 	}
 	return imageList, err
 }
+
+func (registry *Registry) DeleteTag(image, tag string, dryRunMode bool) error {
+	digest, err := registry.ManifestDigest(image, tag)
+	if err != nil {
+		return err
+	}
+	if !dryRunMode {
+		err = registry.DeleteManifest(image, digest)
+	}
+	if err != nil {
+		return err
+	}
+	return nil
+}

@@ -162,3 +162,19 @@ if err != nil {
 ```
 
 This will also create or update tags, as necessary.
+
+## Getting Images List
+
+You can obtain a Map which keys are the image´s names, and values the tag´s versions:
+
+```go
+imagesMap, err := registry.GetImages()
+if err != nil {
+    // …
+}
+for image, imageTags := range imagesMap {
+    for _, tag := range imageTags {
+        fmt.Printf("Image: %s:%s\n", image, tag)
+    }
+}
+```
