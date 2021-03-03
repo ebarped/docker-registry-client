@@ -45,7 +45,7 @@ func (registry *Registry) DeleteImage(image string, dryRunMode bool) error {
 		return err
 	}
 	if !dryRunMode {
-		err = registry.DeleteManifest(image, digest)
+		err = registry.DeleteManifest(splitImage[0], digest)
 	}
 	if err != nil {
 		return err
