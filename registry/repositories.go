@@ -10,7 +10,7 @@ func (registry *Registry) Repositories() ([]string, error) {
 	var err error //We create this here, otherwise url will be rescoped with :=
 	var response repositoriesResponse
 	for {
-		registry.Logf("registry.repositories url=%s", url)
+		//registry.Logf("registry.repositories url=%s", url)
 		url, err = registry.getPaginatedJSON(url, &response)
 		switch err {
 		case ErrNoMorePages:
